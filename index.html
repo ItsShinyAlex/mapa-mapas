@@ -45,32 +45,32 @@
         <script src="data/EscuelasporMunicipio_4.js"></script>
         <script src="data/TotalEscuelasMorelos_5.js"></script>
         <script src="data/UbicacionEscuelas_6.js"></script>
-        <script src="data/EstadodeMorelos_7.js"></script>
-        <script src="data/Cuautla_8.js"></script>
-        <script src="data/Temoac_9.js"></script>
-        <script src="data/Axochiapan_10.js"></script>
-        <script src="data/Huitzilac_11.js"></script>
-        <script src="data/Tlayacapan_12.js"></script>
-        <script src="data/Yecapixtla_13.js"></script>
-        <script src="data/TeteladelVolcan_14.js"></script>
-        <script src="data/Hueyapan_15.js"></script>
-        <script src="data/Jonacatepec_16.js"></script>
-        <script src="data/Ayala_17.js"></script>
-        <script src="data/Tlaquiltenango_18.js"></script>
-        <script src="data/jojutla_19.js"></script>
-        <script src="data/Tlaltizapan_20.js"></script>
-        <script src="data/Jiutepec_21.js"></script>
-        <script src="data/Temixco_22.js"></script>
-        <script src="data/Tepalcingo_23.js"></script>
-        <script src="data/Yautepec_24.js"></script>
-        <script src="data/EmilianoZapata_25.js"></script>
-        <script src="data/Zacatepec_26.js"></script>
-        <script src="data/Xochitepec_27.js"></script>
-        <script src="data/Xoxocotla_28.js"></script>
-        <script src="data/Atlatlahucan_29.js"></script>
-        <script src="data/Coatetelco_30.js"></script>
-        <script src="data/POBLACIONCONDISCPACIDAD_31.js"></script>
-        <script src="data/INEGI_32.js"></script>
+        <script src="data/POBLACIONCONDISCPACIDAD_7.js"></script>
+        <script src="data/INEGI_8.js"></script>
+        <script src="data/EstadodeMorelos_9.js"></script>
+        <script src="data/Cuautla_10.js"></script>
+        <script src="data/Temoac_11.js"></script>
+        <script src="data/Axochiapan_12.js"></script>
+        <script src="data/Huitzilac_13.js"></script>
+        <script src="data/Tlayacapan_14.js"></script>
+        <script src="data/Yecapixtla_15.js"></script>
+        <script src="data/TeteladelVolcan_16.js"></script>
+        <script src="data/Hueyapan_17.js"></script>
+        <script src="data/Jonacatepec_18.js"></script>
+        <script src="data/Ayala_19.js"></script>
+        <script src="data/Tlaquiltenango_20.js"></script>
+        <script src="data/jojutla_21.js"></script>
+        <script src="data/Tlaltizapan_22.js"></script>
+        <script src="data/Jiutepec_23.js"></script>
+        <script src="data/Temixco_24.js"></script>
+        <script src="data/Tepalcingo_25.js"></script>
+        <script src="data/Yautepec_26.js"></script>
+        <script src="data/EmilianoZapata_27.js"></script>
+        <script src="data/Zacatepec_28.js"></script>
+        <script src="data/Xochitepec_29.js"></script>
+        <script src="data/Xoxocotla_30.js"></script>
+        <script src="data/Atlatlahucan_31.js"></script>
+        <script src="data/Coatetelco_32.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -249,7 +249,6 @@
             style: style_SolicitudesCiudadanas_2_0,
         });
         bounds_group.addLayer(layer_SolicitudesCiudadanas_2);
-        map.addLayer(layer_SolicitudesCiudadanas_2);
         function pop_CorazondeMujer_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -306,7 +305,6 @@
             style: style_CorazondeMujer_3_0,
         });
         bounds_group.addLayer(layer_CorazondeMujer_3);
-        map.addLayer(layer_CorazondeMujer_3);
         function pop_EscuelasporMunicipio_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -379,7 +377,6 @@
             style: style_EscuelasporMunicipio_4_0,
         });
         bounds_group.addLayer(layer_EscuelasporMunicipio_4);
-        map.addLayer(layer_EscuelasporMunicipio_4);
         function pop_TotalEscuelasMorelos_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -452,7 +449,6 @@
             style: style_TotalEscuelasMorelos_5_0,
         });
         bounds_group.addLayer(layer_TotalEscuelasMorelos_5);
-        map.addLayer(layer_TotalEscuelasMorelos_5);
         function pop_UbicacionEscuelas_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -556,8 +552,147 @@
         cluster_UbicacionEscuelas_6.addLayer(layer_UbicacionEscuelas_6);
 
         bounds_group.addLayer(layer_UbicacionEscuelas_6);
-        cluster_UbicacionEscuelas_6.addTo(map);
-        function pop_EstadodeMorelos_7(feature, layer) {
+        function pop_POBLACIONCONDISCPACIDAD_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Población con discapacidad</th>\
+                        <td>' + (feature.properties['_PCON_DISC'] !== null ? autolinker.link(String(feature.properties['_PCON_DISC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con discapacidad para caminar</th>\
+                        <td>' + (feature.properties['_PCDISC_MO'] !== null ? autolinker.link(String(feature.properties['_PCDISC_MO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con discapacidad para ver</th>\
+                        <td>' + (feature.properties['_PCDISC_VI'] !== null ? autolinker.link(String(feature.properties['_PCDISC_VI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con discapacidad para hablar</th>\
+                        <td>' + (feature.properties['_PCDISC_LE'] !== null ? autolinker.link(String(feature.properties['_PCDISC_LE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con discapacidad para oír</th>\
+                        <td>' + (feature.properties['_PCDISC_AU'] !== null ? autolinker.link(String(feature.properties['_PCDISC_AU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con limitación para ver</th>\
+                        <td>' + (feature.properties['_PCLIM_VIS'] !== null ? autolinker.link(String(feature.properties['_PCLIM_VIS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Población con limitación para hablar</th>\
+                        <td>' + (feature.properties['_PCLIM_HAC'] !== null ? autolinker.link(String(feature.properties['_PCLIM_HAC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_POBLACIONCONDISCPACIDAD_7_0() {
+            return {
+                pane: 'pane_POBLACIONCONDISCPACIDAD_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(117,122,77,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_POBLACIONCONDISCPACIDAD_7');
+        map.getPane('pane_POBLACIONCONDISCPACIDAD_7').style.zIndex = 407;
+        map.getPane('pane_POBLACIONCONDISCPACIDAD_7').style['mix-blend-mode'] = 'normal';
+        var layer_POBLACIONCONDISCPACIDAD_7 = new L.geoJson(json_POBLACIONCONDISCPACIDAD_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_POBLACIONCONDISCPACIDAD_7',
+            layerName: 'layer_POBLACIONCONDISCPACIDAD_7',
+            pane: 'pane_POBLACIONCONDISCPACIDAD_7',
+            onEachFeature: pop_POBLACIONCONDISCPACIDAD_7,
+            style: style_POBLACIONCONDISCPACIDAD_7_0,
+        });
+        bounds_group.addLayer(layer_POBLACIONCONDISCPACIDAD_7);
+        function pop_INEGI_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Municipio</th>\
+                        <td class="visible-with-data" id="NOMGEO">' + (feature.properties['NOMGEO'] !== null ? autolinker.link(String(feature.properties['NOMGEO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Poblacion Total</th>\
+                        <td>' + (feature.properties['PTotal'] !== null ? autolinker.link(String(feature.properties['PTotal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Poblacion Masculina</th>\
+                        <td>' + (feature.properties['Poblacion_'] !== null ? autolinker.link(String(feature.properties['Poblacion_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Poblacion Femenina</th>\
+                        <td>' + (feature.properties['Poblacion__1'] !== null ? autolinker.link(String(feature.properties['Poblacion__1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_INEGI_8_0() {
+            return {
+                pane: 'pane_INEGI_8',
+                opacity: 1,
+                color: 'rgba(247,251,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(117,122,77,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_INEGI_8');
+        map.getPane('pane_INEGI_8').style.zIndex = 408;
+        map.getPane('pane_INEGI_8').style['mix-blend-mode'] = 'normal';
+        var layer_INEGI_8 = new L.geoJson(json_INEGI_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_INEGI_8',
+            layerName: 'layer_INEGI_8',
+            pane: 'pane_INEGI_8',
+            onEachFeature: pop_INEGI_8,
+            style: style_INEGI_8_0,
+        });
+        bounds_group.addLayer(layer_INEGI_8);
+        function pop_EstadodeMorelos_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -581,9 +716,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EstadodeMorelos_7_0() {
+        function style_EstadodeMorelos_9_0() {
             return {
-                pane: 'pane_EstadodeMorelos_7',
+                pane: 'pane_EstadodeMorelos_9',
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
@@ -596,21 +731,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EstadodeMorelos_7');
-        map.getPane('pane_EstadodeMorelos_7').style.zIndex = 407;
-        map.getPane('pane_EstadodeMorelos_7').style['mix-blend-mode'] = 'normal';
-        var layer_EstadodeMorelos_7 = new L.geoJson(json_EstadodeMorelos_7, {
+        map.createPane('pane_EstadodeMorelos_9');
+        map.getPane('pane_EstadodeMorelos_9').style.zIndex = 409;
+        map.getPane('pane_EstadodeMorelos_9').style['mix-blend-mode'] = 'normal';
+        var layer_EstadodeMorelos_9 = new L.geoJson(json_EstadodeMorelos_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EstadodeMorelos_7',
-            layerName: 'layer_EstadodeMorelos_7',
-            pane: 'pane_EstadodeMorelos_7',
-            onEachFeature: pop_EstadodeMorelos_7,
-            style: style_EstadodeMorelos_7_0,
+            dataVar: 'json_EstadodeMorelos_9',
+            layerName: 'layer_EstadodeMorelos_9',
+            pane: 'pane_EstadodeMorelos_9',
+            onEachFeature: pop_EstadodeMorelos_9,
+            style: style_EstadodeMorelos_9_0,
         });
-        bounds_group.addLayer(layer_EstadodeMorelos_7);
-        map.addLayer(layer_EstadodeMorelos_7);
-        function pop_Cuautla_8(feature, layer) {
+        bounds_group.addLayer(layer_EstadodeMorelos_9);
+        map.addLayer(layer_EstadodeMorelos_9);
+        function pop_Cuautla_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -646,9 +781,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Cuautla_8_0() {
+        function style_Cuautla_10_0() {
             return {
-                pane: 'pane_Cuautla_8',
+                pane: 'pane_Cuautla_10',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -661,21 +796,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Cuautla_8');
-        map.getPane('pane_Cuautla_8').style.zIndex = 408;
-        map.getPane('pane_Cuautla_8').style['mix-blend-mode'] = 'normal';
-        var layer_Cuautla_8 = new L.geoJson(json_Cuautla_8, {
+        map.createPane('pane_Cuautla_10');
+        map.getPane('pane_Cuautla_10').style.zIndex = 410;
+        map.getPane('pane_Cuautla_10').style['mix-blend-mode'] = 'normal';
+        var layer_Cuautla_10 = new L.geoJson(json_Cuautla_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Cuautla_8',
-            layerName: 'layer_Cuautla_8',
-            pane: 'pane_Cuautla_8',
-            onEachFeature: pop_Cuautla_8,
-            style: style_Cuautla_8_0,
+            dataVar: 'json_Cuautla_10',
+            layerName: 'layer_Cuautla_10',
+            pane: 'pane_Cuautla_10',
+            onEachFeature: pop_Cuautla_10,
+            style: style_Cuautla_10_0,
         });
-        bounds_group.addLayer(layer_Cuautla_8);
-        map.addLayer(layer_Cuautla_8);
-        function pop_Temoac_9(feature, layer) {
+        bounds_group.addLayer(layer_Cuautla_10);
+        map.addLayer(layer_Cuautla_10);
+        function pop_Temoac_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -711,9 +846,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Temoac_9_0() {
+        function style_Temoac_11_0() {
             return {
-                pane: 'pane_Temoac_9',
+                pane: 'pane_Temoac_11',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -726,21 +861,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Temoac_9');
-        map.getPane('pane_Temoac_9').style.zIndex = 409;
-        map.getPane('pane_Temoac_9').style['mix-blend-mode'] = 'normal';
-        var layer_Temoac_9 = new L.geoJson(json_Temoac_9, {
+        map.createPane('pane_Temoac_11');
+        map.getPane('pane_Temoac_11').style.zIndex = 411;
+        map.getPane('pane_Temoac_11').style['mix-blend-mode'] = 'normal';
+        var layer_Temoac_11 = new L.geoJson(json_Temoac_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Temoac_9',
-            layerName: 'layer_Temoac_9',
-            pane: 'pane_Temoac_9',
-            onEachFeature: pop_Temoac_9,
-            style: style_Temoac_9_0,
+            dataVar: 'json_Temoac_11',
+            layerName: 'layer_Temoac_11',
+            pane: 'pane_Temoac_11',
+            onEachFeature: pop_Temoac_11,
+            style: style_Temoac_11_0,
         });
-        bounds_group.addLayer(layer_Temoac_9);
-        map.addLayer(layer_Temoac_9);
-        function pop_Axochiapan_10(feature, layer) {
+        bounds_group.addLayer(layer_Temoac_11);
+        map.addLayer(layer_Temoac_11);
+        function pop_Axochiapan_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -794,9 +929,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Axochiapan_10_0() {
+        function style_Axochiapan_12_0() {
             return {
-                pane: 'pane_Axochiapan_10',
+                pane: 'pane_Axochiapan_12',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -809,21 +944,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Axochiapan_10');
-        map.getPane('pane_Axochiapan_10').style.zIndex = 410;
-        map.getPane('pane_Axochiapan_10').style['mix-blend-mode'] = 'normal';
-        var layer_Axochiapan_10 = new L.geoJson(json_Axochiapan_10, {
+        map.createPane('pane_Axochiapan_12');
+        map.getPane('pane_Axochiapan_12').style.zIndex = 412;
+        map.getPane('pane_Axochiapan_12').style['mix-blend-mode'] = 'normal';
+        var layer_Axochiapan_12 = new L.geoJson(json_Axochiapan_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Axochiapan_10',
-            layerName: 'layer_Axochiapan_10',
-            pane: 'pane_Axochiapan_10',
-            onEachFeature: pop_Axochiapan_10,
-            style: style_Axochiapan_10_0,
+            dataVar: 'json_Axochiapan_12',
+            layerName: 'layer_Axochiapan_12',
+            pane: 'pane_Axochiapan_12',
+            onEachFeature: pop_Axochiapan_12,
+            style: style_Axochiapan_12_0,
         });
-        bounds_group.addLayer(layer_Axochiapan_10);
-        map.addLayer(layer_Axochiapan_10);
-        function pop_Huitzilac_11(feature, layer) {
+        bounds_group.addLayer(layer_Axochiapan_12);
+        map.addLayer(layer_Axochiapan_12);
+        function pop_Huitzilac_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -897,9 +1032,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Huitzilac_11_0() {
+        function style_Huitzilac_13_0() {
             return {
-                pane: 'pane_Huitzilac_11',
+                pane: 'pane_Huitzilac_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -912,21 +1047,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Huitzilac_11');
-        map.getPane('pane_Huitzilac_11').style.zIndex = 411;
-        map.getPane('pane_Huitzilac_11').style['mix-blend-mode'] = 'normal';
-        var layer_Huitzilac_11 = new L.geoJson(json_Huitzilac_11, {
+        map.createPane('pane_Huitzilac_13');
+        map.getPane('pane_Huitzilac_13').style.zIndex = 413;
+        map.getPane('pane_Huitzilac_13').style['mix-blend-mode'] = 'normal';
+        var layer_Huitzilac_13 = new L.geoJson(json_Huitzilac_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Huitzilac_11',
-            layerName: 'layer_Huitzilac_11',
-            pane: 'pane_Huitzilac_11',
-            onEachFeature: pop_Huitzilac_11,
-            style: style_Huitzilac_11_0,
+            dataVar: 'json_Huitzilac_13',
+            layerName: 'layer_Huitzilac_13',
+            pane: 'pane_Huitzilac_13',
+            onEachFeature: pop_Huitzilac_13,
+            style: style_Huitzilac_13_0,
         });
-        bounds_group.addLayer(layer_Huitzilac_11);
-        map.addLayer(layer_Huitzilac_11);
-        function pop_Tlayacapan_12(feature, layer) {
+        bounds_group.addLayer(layer_Huitzilac_13);
+        map.addLayer(layer_Huitzilac_13);
+        function pop_Tlayacapan_14(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1000,9 +1135,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Tlayacapan_12_0() {
+        function style_Tlayacapan_14_0() {
             return {
-                pane: 'pane_Tlayacapan_12',
+                pane: 'pane_Tlayacapan_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1015,21 +1150,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Tlayacapan_12');
-        map.getPane('pane_Tlayacapan_12').style.zIndex = 412;
-        map.getPane('pane_Tlayacapan_12').style['mix-blend-mode'] = 'normal';
-        var layer_Tlayacapan_12 = new L.geoJson(json_Tlayacapan_12, {
+        map.createPane('pane_Tlayacapan_14');
+        map.getPane('pane_Tlayacapan_14').style.zIndex = 414;
+        map.getPane('pane_Tlayacapan_14').style['mix-blend-mode'] = 'normal';
+        var layer_Tlayacapan_14 = new L.geoJson(json_Tlayacapan_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Tlayacapan_12',
-            layerName: 'layer_Tlayacapan_12',
-            pane: 'pane_Tlayacapan_12',
-            onEachFeature: pop_Tlayacapan_12,
-            style: style_Tlayacapan_12_0,
+            dataVar: 'json_Tlayacapan_14',
+            layerName: 'layer_Tlayacapan_14',
+            pane: 'pane_Tlayacapan_14',
+            onEachFeature: pop_Tlayacapan_14,
+            style: style_Tlayacapan_14_0,
         });
-        bounds_group.addLayer(layer_Tlayacapan_12);
-        map.addLayer(layer_Tlayacapan_12);
-        function pop_Yecapixtla_13(feature, layer) {
+        bounds_group.addLayer(layer_Tlayacapan_14);
+        map.addLayer(layer_Tlayacapan_14);
+        function pop_Yecapixtla_15(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1113,9 +1248,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Yecapixtla_13_0() {
+        function style_Yecapixtla_15_0() {
             return {
-                pane: 'pane_Yecapixtla_13',
+                pane: 'pane_Yecapixtla_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1128,21 +1263,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Yecapixtla_13');
-        map.getPane('pane_Yecapixtla_13').style.zIndex = 413;
-        map.getPane('pane_Yecapixtla_13').style['mix-blend-mode'] = 'normal';
-        var layer_Yecapixtla_13 = new L.geoJson(json_Yecapixtla_13, {
+        map.createPane('pane_Yecapixtla_15');
+        map.getPane('pane_Yecapixtla_15').style.zIndex = 415;
+        map.getPane('pane_Yecapixtla_15').style['mix-blend-mode'] = 'normal';
+        var layer_Yecapixtla_15 = new L.geoJson(json_Yecapixtla_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Yecapixtla_13',
-            layerName: 'layer_Yecapixtla_13',
-            pane: 'pane_Yecapixtla_13',
-            onEachFeature: pop_Yecapixtla_13,
-            style: style_Yecapixtla_13_0,
+            dataVar: 'json_Yecapixtla_15',
+            layerName: 'layer_Yecapixtla_15',
+            pane: 'pane_Yecapixtla_15',
+            onEachFeature: pop_Yecapixtla_15,
+            style: style_Yecapixtla_15_0,
         });
-        bounds_group.addLayer(layer_Yecapixtla_13);
-        map.addLayer(layer_Yecapixtla_13);
-        function pop_TeteladelVolcan_14(feature, layer) {
+        bounds_group.addLayer(layer_Yecapixtla_15);
+        map.addLayer(layer_Yecapixtla_15);
+        function pop_TeteladelVolcan_16(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1178,9 +1313,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_TeteladelVolcan_14_0() {
+        function style_TeteladelVolcan_16_0() {
             return {
-                pane: 'pane_TeteladelVolcan_14',
+                pane: 'pane_TeteladelVolcan_16',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1193,21 +1328,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_TeteladelVolcan_14');
-        map.getPane('pane_TeteladelVolcan_14').style.zIndex = 414;
-        map.getPane('pane_TeteladelVolcan_14').style['mix-blend-mode'] = 'normal';
-        var layer_TeteladelVolcan_14 = new L.geoJson(json_TeteladelVolcan_14, {
+        map.createPane('pane_TeteladelVolcan_16');
+        map.getPane('pane_TeteladelVolcan_16').style.zIndex = 416;
+        map.getPane('pane_TeteladelVolcan_16').style['mix-blend-mode'] = 'normal';
+        var layer_TeteladelVolcan_16 = new L.geoJson(json_TeteladelVolcan_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_TeteladelVolcan_14',
-            layerName: 'layer_TeteladelVolcan_14',
-            pane: 'pane_TeteladelVolcan_14',
-            onEachFeature: pop_TeteladelVolcan_14,
-            style: style_TeteladelVolcan_14_0,
+            dataVar: 'json_TeteladelVolcan_16',
+            layerName: 'layer_TeteladelVolcan_16',
+            pane: 'pane_TeteladelVolcan_16',
+            onEachFeature: pop_TeteladelVolcan_16,
+            style: style_TeteladelVolcan_16_0,
         });
-        bounds_group.addLayer(layer_TeteladelVolcan_14);
-        map.addLayer(layer_TeteladelVolcan_14);
-        function pop_Hueyapan_15(feature, layer) {
+        bounds_group.addLayer(layer_TeteladelVolcan_16);
+        map.addLayer(layer_TeteladelVolcan_16);
+        function pop_Hueyapan_17(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1243,9 +1378,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Hueyapan_15_0() {
+        function style_Hueyapan_17_0() {
             return {
-                pane: 'pane_Hueyapan_15',
+                pane: 'pane_Hueyapan_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1258,21 +1393,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Hueyapan_15');
-        map.getPane('pane_Hueyapan_15').style.zIndex = 415;
-        map.getPane('pane_Hueyapan_15').style['mix-blend-mode'] = 'normal';
-        var layer_Hueyapan_15 = new L.geoJson(json_Hueyapan_15, {
+        map.createPane('pane_Hueyapan_17');
+        map.getPane('pane_Hueyapan_17').style.zIndex = 417;
+        map.getPane('pane_Hueyapan_17').style['mix-blend-mode'] = 'normal';
+        var layer_Hueyapan_17 = new L.geoJson(json_Hueyapan_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Hueyapan_15',
-            layerName: 'layer_Hueyapan_15',
-            pane: 'pane_Hueyapan_15',
-            onEachFeature: pop_Hueyapan_15,
-            style: style_Hueyapan_15_0,
+            dataVar: 'json_Hueyapan_17',
+            layerName: 'layer_Hueyapan_17',
+            pane: 'pane_Hueyapan_17',
+            onEachFeature: pop_Hueyapan_17,
+            style: style_Hueyapan_17_0,
         });
-        bounds_group.addLayer(layer_Hueyapan_15);
-        map.addLayer(layer_Hueyapan_15);
-        function pop_Jonacatepec_16(feature, layer) {
+        bounds_group.addLayer(layer_Hueyapan_17);
+        map.addLayer(layer_Hueyapan_17);
+        function pop_Jonacatepec_18(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1306,9 +1441,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Jonacatepec_16_0() {
+        function style_Jonacatepec_18_0() {
             return {
-                pane: 'pane_Jonacatepec_16',
+                pane: 'pane_Jonacatepec_18',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1321,21 +1456,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Jonacatepec_16');
-        map.getPane('pane_Jonacatepec_16').style.zIndex = 416;
-        map.getPane('pane_Jonacatepec_16').style['mix-blend-mode'] = 'normal';
-        var layer_Jonacatepec_16 = new L.geoJson(json_Jonacatepec_16, {
+        map.createPane('pane_Jonacatepec_18');
+        map.getPane('pane_Jonacatepec_18').style.zIndex = 418;
+        map.getPane('pane_Jonacatepec_18').style['mix-blend-mode'] = 'normal';
+        var layer_Jonacatepec_18 = new L.geoJson(json_Jonacatepec_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Jonacatepec_16',
-            layerName: 'layer_Jonacatepec_16',
-            pane: 'pane_Jonacatepec_16',
-            onEachFeature: pop_Jonacatepec_16,
-            style: style_Jonacatepec_16_0,
+            dataVar: 'json_Jonacatepec_18',
+            layerName: 'layer_Jonacatepec_18',
+            pane: 'pane_Jonacatepec_18',
+            onEachFeature: pop_Jonacatepec_18,
+            style: style_Jonacatepec_18_0,
         });
-        bounds_group.addLayer(layer_Jonacatepec_16);
-        map.addLayer(layer_Jonacatepec_16);
-        function pop_Ayala_17(feature, layer) {
+        bounds_group.addLayer(layer_Jonacatepec_18);
+        map.addLayer(layer_Jonacatepec_18);
+        function pop_Ayala_19(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1371,9 +1506,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Ayala_17_0() {
+        function style_Ayala_19_0() {
             return {
-                pane: 'pane_Ayala_17',
+                pane: 'pane_Ayala_19',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1386,21 +1521,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Ayala_17');
-        map.getPane('pane_Ayala_17').style.zIndex = 417;
-        map.getPane('pane_Ayala_17').style['mix-blend-mode'] = 'normal';
-        var layer_Ayala_17 = new L.geoJson(json_Ayala_17, {
+        map.createPane('pane_Ayala_19');
+        map.getPane('pane_Ayala_19').style.zIndex = 419;
+        map.getPane('pane_Ayala_19').style['mix-blend-mode'] = 'normal';
+        var layer_Ayala_19 = new L.geoJson(json_Ayala_19, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Ayala_17',
-            layerName: 'layer_Ayala_17',
-            pane: 'pane_Ayala_17',
-            onEachFeature: pop_Ayala_17,
-            style: style_Ayala_17_0,
+            dataVar: 'json_Ayala_19',
+            layerName: 'layer_Ayala_19',
+            pane: 'pane_Ayala_19',
+            onEachFeature: pop_Ayala_19,
+            style: style_Ayala_19_0,
         });
-        bounds_group.addLayer(layer_Ayala_17);
-        map.addLayer(layer_Ayala_17);
-        function pop_Tlaquiltenango_18(feature, layer) {
+        bounds_group.addLayer(layer_Ayala_19);
+        map.addLayer(layer_Ayala_19);
+        function pop_Tlaquiltenango_20(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1436,9 +1571,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Tlaquiltenango_18_0() {
+        function style_Tlaquiltenango_20_0() {
             return {
-                pane: 'pane_Tlaquiltenango_18',
+                pane: 'pane_Tlaquiltenango_20',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1451,21 +1586,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Tlaquiltenango_18');
-        map.getPane('pane_Tlaquiltenango_18').style.zIndex = 418;
-        map.getPane('pane_Tlaquiltenango_18').style['mix-blend-mode'] = 'normal';
-        var layer_Tlaquiltenango_18 = new L.geoJson(json_Tlaquiltenango_18, {
+        map.createPane('pane_Tlaquiltenango_20');
+        map.getPane('pane_Tlaquiltenango_20').style.zIndex = 420;
+        map.getPane('pane_Tlaquiltenango_20').style['mix-blend-mode'] = 'normal';
+        var layer_Tlaquiltenango_20 = new L.geoJson(json_Tlaquiltenango_20, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Tlaquiltenango_18',
-            layerName: 'layer_Tlaquiltenango_18',
-            pane: 'pane_Tlaquiltenango_18',
-            onEachFeature: pop_Tlaquiltenango_18,
-            style: style_Tlaquiltenango_18_0,
+            dataVar: 'json_Tlaquiltenango_20',
+            layerName: 'layer_Tlaquiltenango_20',
+            pane: 'pane_Tlaquiltenango_20',
+            onEachFeature: pop_Tlaquiltenango_20,
+            style: style_Tlaquiltenango_20_0,
         });
-        bounds_group.addLayer(layer_Tlaquiltenango_18);
-        map.addLayer(layer_Tlaquiltenango_18);
-        function pop_jojutla_19(feature, layer) {
+        bounds_group.addLayer(layer_Tlaquiltenango_20);
+        map.addLayer(layer_Tlaquiltenango_20);
+        function pop_jojutla_21(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1499,9 +1634,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_jojutla_19_0() {
+        function style_jojutla_21_0() {
             return {
-                pane: 'pane_jojutla_19',
+                pane: 'pane_jojutla_21',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1514,21 +1649,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_jojutla_19');
-        map.getPane('pane_jojutla_19').style.zIndex = 419;
-        map.getPane('pane_jojutla_19').style['mix-blend-mode'] = 'normal';
-        var layer_jojutla_19 = new L.geoJson(json_jojutla_19, {
+        map.createPane('pane_jojutla_21');
+        map.getPane('pane_jojutla_21').style.zIndex = 421;
+        map.getPane('pane_jojutla_21').style['mix-blend-mode'] = 'normal';
+        var layer_jojutla_21 = new L.geoJson(json_jojutla_21, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_jojutla_19',
-            layerName: 'layer_jojutla_19',
-            pane: 'pane_jojutla_19',
-            onEachFeature: pop_jojutla_19,
-            style: style_jojutla_19_0,
+            dataVar: 'json_jojutla_21',
+            layerName: 'layer_jojutla_21',
+            pane: 'pane_jojutla_21',
+            onEachFeature: pop_jojutla_21,
+            style: style_jojutla_21_0,
         });
-        bounds_group.addLayer(layer_jojutla_19);
-        map.addLayer(layer_jojutla_19);
-        function pop_Tlaltizapan_20(feature, layer) {
+        bounds_group.addLayer(layer_jojutla_21);
+        map.addLayer(layer_jojutla_21);
+        function pop_Tlaltizapan_22(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1592,9 +1727,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Tlaltizapan_20_0() {
+        function style_Tlaltizapan_22_0() {
             return {
-                pane: 'pane_Tlaltizapan_20',
+                pane: 'pane_Tlaltizapan_22',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1607,21 +1742,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Tlaltizapan_20');
-        map.getPane('pane_Tlaltizapan_20').style.zIndex = 420;
-        map.getPane('pane_Tlaltizapan_20').style['mix-blend-mode'] = 'normal';
-        var layer_Tlaltizapan_20 = new L.geoJson(json_Tlaltizapan_20, {
+        map.createPane('pane_Tlaltizapan_22');
+        map.getPane('pane_Tlaltizapan_22').style.zIndex = 422;
+        map.getPane('pane_Tlaltizapan_22').style['mix-blend-mode'] = 'normal';
+        var layer_Tlaltizapan_22 = new L.geoJson(json_Tlaltizapan_22, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Tlaltizapan_20',
-            layerName: 'layer_Tlaltizapan_20',
-            pane: 'pane_Tlaltizapan_20',
-            onEachFeature: pop_Tlaltizapan_20,
-            style: style_Tlaltizapan_20_0,
+            dataVar: 'json_Tlaltizapan_22',
+            layerName: 'layer_Tlaltizapan_22',
+            pane: 'pane_Tlaltizapan_22',
+            onEachFeature: pop_Tlaltizapan_22,
+            style: style_Tlaltizapan_22_0,
         });
-        bounds_group.addLayer(layer_Tlaltizapan_20);
-        map.addLayer(layer_Tlaltizapan_20);
-        function pop_Jiutepec_21(feature, layer) {
+        bounds_group.addLayer(layer_Tlaltizapan_22);
+        map.addLayer(layer_Tlaltizapan_22);
+        function pop_Jiutepec_23(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1675,9 +1810,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Jiutepec_21_0() {
+        function style_Jiutepec_23_0() {
             return {
-                pane: 'pane_Jiutepec_21',
+                pane: 'pane_Jiutepec_23',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1690,21 +1825,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Jiutepec_21');
-        map.getPane('pane_Jiutepec_21').style.zIndex = 421;
-        map.getPane('pane_Jiutepec_21').style['mix-blend-mode'] = 'normal';
-        var layer_Jiutepec_21 = new L.geoJson(json_Jiutepec_21, {
+        map.createPane('pane_Jiutepec_23');
+        map.getPane('pane_Jiutepec_23').style.zIndex = 423;
+        map.getPane('pane_Jiutepec_23').style['mix-blend-mode'] = 'normal';
+        var layer_Jiutepec_23 = new L.geoJson(json_Jiutepec_23, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Jiutepec_21',
-            layerName: 'layer_Jiutepec_21',
-            pane: 'pane_Jiutepec_21',
-            onEachFeature: pop_Jiutepec_21,
-            style: style_Jiutepec_21_0,
+            dataVar: 'json_Jiutepec_23',
+            layerName: 'layer_Jiutepec_23',
+            pane: 'pane_Jiutepec_23',
+            onEachFeature: pop_Jiutepec_23,
+            style: style_Jiutepec_23_0,
         });
-        bounds_group.addLayer(layer_Jiutepec_21);
-        map.addLayer(layer_Jiutepec_21);
-        function pop_Temixco_22(feature, layer) {
+        bounds_group.addLayer(layer_Jiutepec_23);
+        map.addLayer(layer_Jiutepec_23);
+        function pop_Temixco_24(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1740,9 +1875,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Temixco_22_0() {
+        function style_Temixco_24_0() {
             return {
-                pane: 'pane_Temixco_22',
+                pane: 'pane_Temixco_24',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1755,21 +1890,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Temixco_22');
-        map.getPane('pane_Temixco_22').style.zIndex = 422;
-        map.getPane('pane_Temixco_22').style['mix-blend-mode'] = 'normal';
-        var layer_Temixco_22 = new L.geoJson(json_Temixco_22, {
+        map.createPane('pane_Temixco_24');
+        map.getPane('pane_Temixco_24').style.zIndex = 424;
+        map.getPane('pane_Temixco_24').style['mix-blend-mode'] = 'normal';
+        var layer_Temixco_24 = new L.geoJson(json_Temixco_24, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Temixco_22',
-            layerName: 'layer_Temixco_22',
-            pane: 'pane_Temixco_22',
-            onEachFeature: pop_Temixco_22,
-            style: style_Temixco_22_0,
+            dataVar: 'json_Temixco_24',
+            layerName: 'layer_Temixco_24',
+            pane: 'pane_Temixco_24',
+            onEachFeature: pop_Temixco_24,
+            style: style_Temixco_24_0,
         });
-        bounds_group.addLayer(layer_Temixco_22);
-        map.addLayer(layer_Temixco_22);
-        function pop_Tepalcingo_23(feature, layer) {
+        bounds_group.addLayer(layer_Temixco_24);
+        map.addLayer(layer_Temixco_24);
+        function pop_Tepalcingo_25(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1853,9 +1988,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Tepalcingo_23_0() {
+        function style_Tepalcingo_25_0() {
             return {
-                pane: 'pane_Tepalcingo_23',
+                pane: 'pane_Tepalcingo_25',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1868,21 +2003,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Tepalcingo_23');
-        map.getPane('pane_Tepalcingo_23').style.zIndex = 423;
-        map.getPane('pane_Tepalcingo_23').style['mix-blend-mode'] = 'normal';
-        var layer_Tepalcingo_23 = new L.geoJson(json_Tepalcingo_23, {
+        map.createPane('pane_Tepalcingo_25');
+        map.getPane('pane_Tepalcingo_25').style.zIndex = 425;
+        map.getPane('pane_Tepalcingo_25').style['mix-blend-mode'] = 'normal';
+        var layer_Tepalcingo_25 = new L.geoJson(json_Tepalcingo_25, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Tepalcingo_23',
-            layerName: 'layer_Tepalcingo_23',
-            pane: 'pane_Tepalcingo_23',
-            onEachFeature: pop_Tepalcingo_23,
-            style: style_Tepalcingo_23_0,
+            dataVar: 'json_Tepalcingo_25',
+            layerName: 'layer_Tepalcingo_25',
+            pane: 'pane_Tepalcingo_25',
+            onEachFeature: pop_Tepalcingo_25,
+            style: style_Tepalcingo_25_0,
         });
-        bounds_group.addLayer(layer_Tepalcingo_23);
-        map.addLayer(layer_Tepalcingo_23);
-        function pop_Yautepec_24(feature, layer) {
+        bounds_group.addLayer(layer_Tepalcingo_25);
+        map.addLayer(layer_Tepalcingo_25);
+        function pop_Yautepec_26(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1916,9 +2051,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Yautepec_24_0() {
+        function style_Yautepec_26_0() {
             return {
-                pane: 'pane_Yautepec_24',
+                pane: 'pane_Yautepec_26',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1931,21 +2066,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Yautepec_24');
-        map.getPane('pane_Yautepec_24').style.zIndex = 424;
-        map.getPane('pane_Yautepec_24').style['mix-blend-mode'] = 'normal';
-        var layer_Yautepec_24 = new L.geoJson(json_Yautepec_24, {
+        map.createPane('pane_Yautepec_26');
+        map.getPane('pane_Yautepec_26').style.zIndex = 426;
+        map.getPane('pane_Yautepec_26').style['mix-blend-mode'] = 'normal';
+        var layer_Yautepec_26 = new L.geoJson(json_Yautepec_26, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Yautepec_24',
-            layerName: 'layer_Yautepec_24',
-            pane: 'pane_Yautepec_24',
-            onEachFeature: pop_Yautepec_24,
-            style: style_Yautepec_24_0,
+            dataVar: 'json_Yautepec_26',
+            layerName: 'layer_Yautepec_26',
+            pane: 'pane_Yautepec_26',
+            onEachFeature: pop_Yautepec_26,
+            style: style_Yautepec_26_0,
         });
-        bounds_group.addLayer(layer_Yautepec_24);
-        map.addLayer(layer_Yautepec_24);
-        function pop_EmilianoZapata_25(feature, layer) {
+        bounds_group.addLayer(layer_Yautepec_26);
+        map.addLayer(layer_Yautepec_26);
+        function pop_EmilianoZapata_27(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2009,9 +2144,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmilianoZapata_25_0() {
+        function style_EmilianoZapata_27_0() {
             return {
-                pane: 'pane_EmilianoZapata_25',
+                pane: 'pane_EmilianoZapata_27',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2024,21 +2159,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EmilianoZapata_25');
-        map.getPane('pane_EmilianoZapata_25').style.zIndex = 425;
-        map.getPane('pane_EmilianoZapata_25').style['mix-blend-mode'] = 'normal';
-        var layer_EmilianoZapata_25 = new L.geoJson(json_EmilianoZapata_25, {
+        map.createPane('pane_EmilianoZapata_27');
+        map.getPane('pane_EmilianoZapata_27').style.zIndex = 427;
+        map.getPane('pane_EmilianoZapata_27').style['mix-blend-mode'] = 'normal';
+        var layer_EmilianoZapata_27 = new L.geoJson(json_EmilianoZapata_27, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmilianoZapata_25',
-            layerName: 'layer_EmilianoZapata_25',
-            pane: 'pane_EmilianoZapata_25',
-            onEachFeature: pop_EmilianoZapata_25,
-            style: style_EmilianoZapata_25_0,
+            dataVar: 'json_EmilianoZapata_27',
+            layerName: 'layer_EmilianoZapata_27',
+            pane: 'pane_EmilianoZapata_27',
+            onEachFeature: pop_EmilianoZapata_27,
+            style: style_EmilianoZapata_27_0,
         });
-        bounds_group.addLayer(layer_EmilianoZapata_25);
-        map.addLayer(layer_EmilianoZapata_25);
-        function pop_Zacatepec_26(feature, layer) {
+        bounds_group.addLayer(layer_EmilianoZapata_27);
+        map.addLayer(layer_EmilianoZapata_27);
+        function pop_Zacatepec_28(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2074,9 +2209,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Zacatepec_26_0() {
+        function style_Zacatepec_28_0() {
             return {
-                pane: 'pane_Zacatepec_26',
+                pane: 'pane_Zacatepec_28',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2089,21 +2224,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Zacatepec_26');
-        map.getPane('pane_Zacatepec_26').style.zIndex = 426;
-        map.getPane('pane_Zacatepec_26').style['mix-blend-mode'] = 'normal';
-        var layer_Zacatepec_26 = new L.geoJson(json_Zacatepec_26, {
+        map.createPane('pane_Zacatepec_28');
+        map.getPane('pane_Zacatepec_28').style.zIndex = 428;
+        map.getPane('pane_Zacatepec_28').style['mix-blend-mode'] = 'normal';
+        var layer_Zacatepec_28 = new L.geoJson(json_Zacatepec_28, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Zacatepec_26',
-            layerName: 'layer_Zacatepec_26',
-            pane: 'pane_Zacatepec_26',
-            onEachFeature: pop_Zacatepec_26,
-            style: style_Zacatepec_26_0,
+            dataVar: 'json_Zacatepec_28',
+            layerName: 'layer_Zacatepec_28',
+            pane: 'pane_Zacatepec_28',
+            onEachFeature: pop_Zacatepec_28,
+            style: style_Zacatepec_28_0,
         });
-        bounds_group.addLayer(layer_Zacatepec_26);
-        map.addLayer(layer_Zacatepec_26);
-        function pop_Xochitepec_27(feature, layer) {
+        bounds_group.addLayer(layer_Zacatepec_28);
+        map.addLayer(layer_Zacatepec_28);
+        function pop_Xochitepec_29(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2136,9 +2271,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Xochitepec_27_0() {
+        function style_Xochitepec_29_0() {
             return {
-                pane: 'pane_Xochitepec_27',
+                pane: 'pane_Xochitepec_29',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2151,21 +2286,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Xochitepec_27');
-        map.getPane('pane_Xochitepec_27').style.zIndex = 427;
-        map.getPane('pane_Xochitepec_27').style['mix-blend-mode'] = 'normal';
-        var layer_Xochitepec_27 = new L.geoJson(json_Xochitepec_27, {
+        map.createPane('pane_Xochitepec_29');
+        map.getPane('pane_Xochitepec_29').style.zIndex = 429;
+        map.getPane('pane_Xochitepec_29').style['mix-blend-mode'] = 'normal';
+        var layer_Xochitepec_29 = new L.geoJson(json_Xochitepec_29, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Xochitepec_27',
-            layerName: 'layer_Xochitepec_27',
-            pane: 'pane_Xochitepec_27',
-            onEachFeature: pop_Xochitepec_27,
-            style: style_Xochitepec_27_0,
+            dataVar: 'json_Xochitepec_29',
+            layerName: 'layer_Xochitepec_29',
+            pane: 'pane_Xochitepec_29',
+            onEachFeature: pop_Xochitepec_29,
+            style: style_Xochitepec_29_0,
         });
-        bounds_group.addLayer(layer_Xochitepec_27);
-        map.addLayer(layer_Xochitepec_27);
-        function pop_Xoxocotla_28(feature, layer) {
+        bounds_group.addLayer(layer_Xochitepec_29);
+        map.addLayer(layer_Xochitepec_29);
+        function pop_Xoxocotla_30(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2195,9 +2330,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Xoxocotla_28_0() {
+        function style_Xoxocotla_30_0() {
             return {
-                pane: 'pane_Xoxocotla_28',
+                pane: 'pane_Xoxocotla_30',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2210,21 +2345,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Xoxocotla_28');
-        map.getPane('pane_Xoxocotla_28').style.zIndex = 428;
-        map.getPane('pane_Xoxocotla_28').style['mix-blend-mode'] = 'normal';
-        var layer_Xoxocotla_28 = new L.geoJson(json_Xoxocotla_28, {
+        map.createPane('pane_Xoxocotla_30');
+        map.getPane('pane_Xoxocotla_30').style.zIndex = 430;
+        map.getPane('pane_Xoxocotla_30').style['mix-blend-mode'] = 'normal';
+        var layer_Xoxocotla_30 = new L.geoJson(json_Xoxocotla_30, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Xoxocotla_28',
-            layerName: 'layer_Xoxocotla_28',
-            pane: 'pane_Xoxocotla_28',
-            onEachFeature: pop_Xoxocotla_28,
-            style: style_Xoxocotla_28_0,
+            dataVar: 'json_Xoxocotla_30',
+            layerName: 'layer_Xoxocotla_30',
+            pane: 'pane_Xoxocotla_30',
+            onEachFeature: pop_Xoxocotla_30,
+            style: style_Xoxocotla_30_0,
         });
-        bounds_group.addLayer(layer_Xoxocotla_28);
-        map.addLayer(layer_Xoxocotla_28);
-        function pop_Atlatlahucan_29(feature, layer) {
+        bounds_group.addLayer(layer_Xoxocotla_30);
+        map.addLayer(layer_Xoxocotla_30);
+        function pop_Atlatlahucan_31(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2287,9 +2422,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Atlatlahucan_29_0() {
+        function style_Atlatlahucan_31_0() {
             return {
-                pane: 'pane_Atlatlahucan_29',
+                pane: 'pane_Atlatlahucan_31',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2302,21 +2437,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Atlatlahucan_29');
-        map.getPane('pane_Atlatlahucan_29').style.zIndex = 429;
-        map.getPane('pane_Atlatlahucan_29').style['mix-blend-mode'] = 'normal';
-        var layer_Atlatlahucan_29 = new L.geoJson(json_Atlatlahucan_29, {
+        map.createPane('pane_Atlatlahucan_31');
+        map.getPane('pane_Atlatlahucan_31').style.zIndex = 431;
+        map.getPane('pane_Atlatlahucan_31').style['mix-blend-mode'] = 'normal';
+        var layer_Atlatlahucan_31 = new L.geoJson(json_Atlatlahucan_31, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Atlatlahucan_29',
-            layerName: 'layer_Atlatlahucan_29',
-            pane: 'pane_Atlatlahucan_29',
-            onEachFeature: pop_Atlatlahucan_29,
-            style: style_Atlatlahucan_29_0,
+            dataVar: 'json_Atlatlahucan_31',
+            layerName: 'layer_Atlatlahucan_31',
+            pane: 'pane_Atlatlahucan_31',
+            onEachFeature: pop_Atlatlahucan_31,
+            style: style_Atlatlahucan_31_0,
         });
-        bounds_group.addLayer(layer_Atlatlahucan_29);
-        map.addLayer(layer_Atlatlahucan_29);
-        function pop_Coatetelco_30(feature, layer) {
+        bounds_group.addLayer(layer_Atlatlahucan_31);
+        map.addLayer(layer_Atlatlahucan_31);
+        function pop_Coatetelco_32(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2352,9 +2487,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Coatetelco_30_0() {
+        function style_Coatetelco_32_0() {
             return {
-                pane: 'pane_Coatetelco_30',
+                pane: 'pane_Coatetelco_32',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2367,162 +2502,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Coatetelco_30');
-        map.getPane('pane_Coatetelco_30').style.zIndex = 430;
-        map.getPane('pane_Coatetelco_30').style['mix-blend-mode'] = 'normal';
-        var layer_Coatetelco_30 = new L.geoJson(json_Coatetelco_30, {
+        map.createPane('pane_Coatetelco_32');
+        map.getPane('pane_Coatetelco_32').style.zIndex = 432;
+        map.getPane('pane_Coatetelco_32').style['mix-blend-mode'] = 'normal';
+        var layer_Coatetelco_32 = new L.geoJson(json_Coatetelco_32, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Coatetelco_30',
-            layerName: 'layer_Coatetelco_30',
-            pane: 'pane_Coatetelco_30',
-            onEachFeature: pop_Coatetelco_30,
-            style: style_Coatetelco_30_0,
+            dataVar: 'json_Coatetelco_32',
+            layerName: 'layer_Coatetelco_32',
+            pane: 'pane_Coatetelco_32',
+            onEachFeature: pop_Coatetelco_32,
+            style: style_Coatetelco_32_0,
         });
-        bounds_group.addLayer(layer_Coatetelco_30);
-        map.addLayer(layer_Coatetelco_30);
-        function pop_POBLACIONCONDISCPACIDAD_31(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Población con discapacidad</th>\
-                        <td>' + (feature.properties['_PCON_DISC'] !== null ? autolinker.link(String(feature.properties['_PCON_DISC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con discapacidad para caminar</th>\
-                        <td>' + (feature.properties['_PCDISC_MO'] !== null ? autolinker.link(String(feature.properties['_PCDISC_MO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con discapacidad para ver</th>\
-                        <td>' + (feature.properties['_PCDISC_VI'] !== null ? autolinker.link(String(feature.properties['_PCDISC_VI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con discapacidad para hablar</th>\
-                        <td>' + (feature.properties['_PCDISC_LE'] !== null ? autolinker.link(String(feature.properties['_PCDISC_LE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con discapacidad para oír</th>\
-                        <td>' + (feature.properties['_PCDISC_AU'] !== null ? autolinker.link(String(feature.properties['_PCDISC_AU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con limitación para ver</th>\
-                        <td>' + (feature.properties['_PCLIM_VIS'] !== null ? autolinker.link(String(feature.properties['_PCLIM_VIS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Población con limitación para hablar</th>\
-                        <td>' + (feature.properties['_PCLIM_HAC'] !== null ? autolinker.link(String(feature.properties['_PCLIM_HAC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_POBLACIONCONDISCPACIDAD_31_0() {
-            return {
-                pane: 'pane_POBLACIONCONDISCPACIDAD_31',
-                opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(117,122,77,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_POBLACIONCONDISCPACIDAD_31');
-        map.getPane('pane_POBLACIONCONDISCPACIDAD_31').style.zIndex = 431;
-        map.getPane('pane_POBLACIONCONDISCPACIDAD_31').style['mix-blend-mode'] = 'normal';
-        var layer_POBLACIONCONDISCPACIDAD_31 = new L.geoJson(json_POBLACIONCONDISCPACIDAD_31, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_POBLACIONCONDISCPACIDAD_31',
-            layerName: 'layer_POBLACIONCONDISCPACIDAD_31',
-            pane: 'pane_POBLACIONCONDISCPACIDAD_31',
-            onEachFeature: pop_POBLACIONCONDISCPACIDAD_31,
-            style: style_POBLACIONCONDISCPACIDAD_31_0,
-        });
-        bounds_group.addLayer(layer_POBLACIONCONDISCPACIDAD_31);
-        map.addLayer(layer_POBLACIONCONDISCPACIDAD_31);
-        function pop_INEGI_32(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Municipio</th>\
-                        <td class="visible-with-data" id="NOMGEO">' + (feature.properties['NOMGEO'] !== null ? autolinker.link(String(feature.properties['NOMGEO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Poblacion Total</th>\
-                        <td>' + (feature.properties['PTotal'] !== null ? autolinker.link(String(feature.properties['PTotal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Poblacion Masculina</th>\
-                        <td>' + (feature.properties['Poblacion_'] !== null ? autolinker.link(String(feature.properties['Poblacion_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Poblacion Femenina</th>\
-                        <td>' + (feature.properties['Poblacion__1'] !== null ? autolinker.link(String(feature.properties['Poblacion__1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_INEGI_32_0() {
-            return {
-                pane: 'pane_INEGI_32',
-                opacity: 1,
-                color: 'rgba(247,251,255,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(117,122,77,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_INEGI_32');
-        map.getPane('pane_INEGI_32').style.zIndex = 432;
-        map.getPane('pane_INEGI_32').style['mix-blend-mode'] = 'normal';
-        var layer_INEGI_32 = new L.geoJson(json_INEGI_32, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_INEGI_32',
-            layerName: 'layer_INEGI_32',
-            pane: 'pane_INEGI_32',
-            onEachFeature: pop_INEGI_32,
-            style: style_INEGI_32_0,
-        });
-        bounds_group.addLayer(layer_INEGI_32);
-        map.addLayer(layer_INEGI_32);
+        bounds_group.addLayer(layer_Coatetelco_32);
+        map.addLayer(layer_Coatetelco_32);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -2534,34 +2527,34 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var overlaysTree = [
-        {label: '<b>INEGI</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/INEGI_32.png" /> INEGI', layer: layer_INEGI_32},
-            {label: '<img src="legend/POBLACIONCONDISCPACIDAD_31.png" /> POBLACION CON DISCPACIDAD', layer: layer_POBLACIONCONDISCPACIDAD_31},]},
         {label: '<b>TPBV</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Coatetelco_30.png" /> Coatetelco', layer: layer_Coatetelco_30},
-            {label: '<img src="legend/Atlatlahucan_29.png" /> Atlatlahucan', layer: layer_Atlatlahucan_29},
-            {label: '<img src="legend/Xoxocotla_28.png" /> Xoxocotla', layer: layer_Xoxocotla_28},
-            {label: '<img src="legend/Xochitepec_27.png" /> Xochitepec ', layer: layer_Xochitepec_27},
-            {label: '<img src="legend/Zacatepec_26.png" /> Zacatepec', layer: layer_Zacatepec_26},
-            {label: '<img src="legend/EmilianoZapata_25.png" /> Emiliano Zapata ', layer: layer_EmilianoZapata_25},
-            {label: '<img src="legend/Yautepec_24.png" /> Yautepec ', layer: layer_Yautepec_24},
-            {label: '<img src="legend/Tepalcingo_23.png" /> Tepalcingo ', layer: layer_Tepalcingo_23},
-            {label: '<img src="legend/Temixco_22.png" /> Temixco', layer: layer_Temixco_22},
-            {label: '<img src="legend/Jiutepec_21.png" /> Jiutepec ', layer: layer_Jiutepec_21},
-            {label: '<img src="legend/Tlaltizapan_20.png" /> Tlaltizapan ', layer: layer_Tlaltizapan_20},
-            {label: '<img src="legend/jojutla_19.png" /> jojutla ', layer: layer_jojutla_19},
-            {label: '<img src="legend/Tlaquiltenango_18.png" /> Tlaquiltenango', layer: layer_Tlaquiltenango_18},
-            {label: '<img src="legend/Ayala_17.png" /> Ayala', layer: layer_Ayala_17},
-            {label: '<img src="legend/Jonacatepec_16.png" /> Jonacatepec', layer: layer_Jonacatepec_16},
-            {label: '<img src="legend/Hueyapan_15.png" /> Hueyapan', layer: layer_Hueyapan_15},
-            {label: '<img src="legend/TeteladelVolcan_14.png" /> Tetela del Volcan', layer: layer_TeteladelVolcan_14},
-            {label: '<img src="legend/Yecapixtla_13.png" /> Yecapixtla', layer: layer_Yecapixtla_13},
-            {label: '<img src="legend/Tlayacapan_12.png" /> Tlayacapan', layer: layer_Tlayacapan_12},
-            {label: '<img src="legend/Huitzilac_11.png" /> Huitzilac ', layer: layer_Huitzilac_11},
-            {label: '<img src="legend/Axochiapan_10.png" /> Axochiapan ', layer: layer_Axochiapan_10},
-            {label: '<img src="legend/Temoac_9.png" /> Temoac', layer: layer_Temoac_9},
-            {label: '<img src="legend/Cuautla_8.png" /> Cuautla', layer: layer_Cuautla_8},
-            {label: '<img src="legend/EstadodeMorelos_7.png" /> Estado de Morelos', layer: layer_EstadodeMorelos_7},]},
+            {label: '<img src="legend/Coatetelco_32.png" /> Coatetelco', layer: layer_Coatetelco_32},
+            {label: '<img src="legend/Atlatlahucan_31.png" /> Atlatlahucan', layer: layer_Atlatlahucan_31},
+            {label: '<img src="legend/Xoxocotla_30.png" /> Xoxocotla', layer: layer_Xoxocotla_30},
+            {label: '<img src="legend/Xochitepec_29.png" /> Xochitepec ', layer: layer_Xochitepec_29},
+            {label: '<img src="legend/Zacatepec_28.png" /> Zacatepec', layer: layer_Zacatepec_28},
+            {label: '<img src="legend/EmilianoZapata_27.png" /> Emiliano Zapata ', layer: layer_EmilianoZapata_27},
+            {label: '<img src="legend/Yautepec_26.png" /> Yautepec ', layer: layer_Yautepec_26},
+            {label: '<img src="legend/Tepalcingo_25.png" /> Tepalcingo ', layer: layer_Tepalcingo_25},
+            {label: '<img src="legend/Temixco_24.png" /> Temixco', layer: layer_Temixco_24},
+            {label: '<img src="legend/Jiutepec_23.png" /> Jiutepec ', layer: layer_Jiutepec_23},
+            {label: '<img src="legend/Tlaltizapan_22.png" /> Tlaltizapan ', layer: layer_Tlaltizapan_22},
+            {label: '<img src="legend/jojutla_21.png" /> jojutla ', layer: layer_jojutla_21},
+            {label: '<img src="legend/Tlaquiltenango_20.png" /> Tlaquiltenango', layer: layer_Tlaquiltenango_20},
+            {label: '<img src="legend/Ayala_19.png" /> Ayala', layer: layer_Ayala_19},
+            {label: '<img src="legend/Jonacatepec_18.png" /> Jonacatepec', layer: layer_Jonacatepec_18},
+            {label: '<img src="legend/Hueyapan_17.png" /> Hueyapan', layer: layer_Hueyapan_17},
+            {label: '<img src="legend/TeteladelVolcan_16.png" /> Tetela del Volcan', layer: layer_TeteladelVolcan_16},
+            {label: '<img src="legend/Yecapixtla_15.png" /> Yecapixtla', layer: layer_Yecapixtla_15},
+            {label: '<img src="legend/Tlayacapan_14.png" /> Tlayacapan', layer: layer_Tlayacapan_14},
+            {label: '<img src="legend/Huitzilac_13.png" /> Huitzilac ', layer: layer_Huitzilac_13},
+            {label: '<img src="legend/Axochiapan_12.png" /> Axochiapan ', layer: layer_Axochiapan_12},
+            {label: '<img src="legend/Temoac_11.png" /> Temoac', layer: layer_Temoac_11},
+            {label: '<img src="legend/Cuautla_10.png" /> Cuautla', layer: layer_Cuautla_10},
+            {label: '<img src="legend/EstadodeMorelos_9.png" /> Estado de Morelos', layer: layer_EstadodeMorelos_9},]},
+        {label: '<b>INEGI</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/INEGI_8.png" /> INEGI', layer: layer_INEGI_8},
+            {label: '<img src="legend/POBLACIONCONDISCPACIDAD_7.png" /> POBLACION CON DISCPACIDAD', layer: layer_POBLACIONCONDISCPACIDAD_7},]},
         {label: '<b>Educacion</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/UbicacionEscuelas_6.png" /> Ubicacion Escuelas ', layer: cluster_UbicacionEscuelas_6},
             {label: '<img src="legend/TotalEscuelasMorelos_5.png" /> Total Escuelas Morelos', layer: layer_TotalEscuelasMorelos_5},
@@ -2645,13 +2638,13 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_INEGI_32)) {
+                if (map.hasLayer(layer_INEGI_8)) {
                     if (map.getZoom() <= 10 && map.getZoom() >= 19) {
-                        layer_INEGI_32.eachLayer(function (layer) {
+                        layer_INEGI_8.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_INEGI_32.eachLayer(function (layer) {
+                        layer_INEGI_8.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
@@ -2682,26 +2675,26 @@
                         });
                     }
                 }
-                if (map.hasLayer(layer_INEGI_32)) {
+                if (map.hasLayer(layer_INEGI_8)) {
                     if (map.getZoom() <= 10 && map.getZoom() >= 19) {
-                        layer_INEGI_32.eachLayer(function (layer) {
+                        layer_INEGI_8.eachLayer(function (layer) {
                             layer.openTooltip();
                         });
                     } else {
-                        layer_INEGI_32.eachLayer(function (layer) {
+                        layer_INEGI_8.eachLayer(function (layer) {
                             layer.closeTooltip();
                         });
                     }
                 }
-        resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_EstadodeMorelos_7,layer_INEGI_32]);
+        resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_INEGI_8,layer_EstadodeMorelos_9]);
         map.on("zoomend", function(){
-            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_EstadodeMorelos_7,layer_INEGI_32]);
+            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_INEGI_8,layer_EstadodeMorelos_9]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_EstadodeMorelos_7,layer_INEGI_32]);
+            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_INEGI_8,layer_EstadodeMorelos_9]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_EstadodeMorelos_7,layer_INEGI_32]);
+            resetLabels([layer_CorazondeMujer_3,layer_EscuelasporMunicipio_4,layer_TotalEscuelasMorelos_5,layer_UbicacionEscuelas_6,layer_INEGI_8,layer_EstadodeMorelos_9]);
         });
         </script>
     </body>
